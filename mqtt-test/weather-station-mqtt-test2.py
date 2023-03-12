@@ -69,11 +69,51 @@ class WeatherStation:
             data = int(rec_datahex[6:14], 16) / 1000
         return format(data, '.3f')
 
+def outputToJSON(dataToAdd, fileName):
+    jsonData = []
+    volumeDir = '/data/'
+    volumeDirExists = os.path.isdir(volumeDir)
 
-if __name__ == "__main__":
-    weatherDict = {}
+    if volumeDirExists:
+        try:
+            # Open the existing file
+            jsonFile = open(volumeDir+fileName, "r+")
+            jsonData = json.load(jsonFile)
+
+        except FileNotFoundError:
+            print(f"[+] Creating {volumeDir+fileName}...")
+            jsonFile = open(volumeDir+fileName, "w")
+    
+    else:
+        try:
+            # Open the existing file
+            jsonFile = open(fileName, "r+")
+            jsonData = json.load(jsonFile)
+        
+        except FileNotFoundError:
+            print(f"[-] Volume directory {volumeDir} not found. Did you mount a volume?")
+            print(f"[+] Storing output to root, creating {fileName}...")
+            jsonFile = open(fileName, "w")
+    
+    # At this point it can be assumed that weather-station-output.json exists, so we can read from and add to it.
+    print(f"[+] The following data will stored: {dataToAdd}")
+    jsonData.append(dataToAdd)
+
+    jsonFile.seek(0)
+    json.dump(jsonData, jsonFile, indent=4, separators=(',',': '))
+    jsonFile.truncate()
+    jsonFile.close()
+
+    
+def main():
+weatherDict = {}
     client = mqtt.MQTTclient()
     w = WeatherStation("/dev/ttyUSB0", 9600, 5)
+    currentDate = datetime.now().strftime("%Y%m%d")
+    # Should include timestamp
+    hostname = os.uname()[1]
+    fileName = hostname + "-weather-station-" + currentDate + ".json"
+
     while True:
         weatherDict["Temperature"] = w.Getdata(w.TemperatureRTU)
         weatherDict["Humidity"] = w.Getdata(w.HumidityRTU)
@@ -94,5 +134,10 @@ if __name__ == "__main__":
         weatherDict["PM2.5"] = w.Getdata(w.PM2RTU)
         weatherDict["PM10"] = w.Getdata(w.PM10RTU)
         pub = json.dumps(weatherDict)
-        client.publish("devices/weather-station", pub)
+        client.publish("nau-iot/weather1/seeed-weather", pub)
+        outputToJSON(weatherDict, fileName)
         time.sleep(1)
+
+if __name__ == "__main__":
+    main()
+        
