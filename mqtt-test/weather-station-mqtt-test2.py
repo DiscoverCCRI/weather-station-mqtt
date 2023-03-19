@@ -1,4 +1,6 @@
 import serial
+import os
+from datetime import datetime
 import time
 import binascii
 import Binary
@@ -106,7 +108,7 @@ def outputToJSON(dataToAdd, fileName):
 
     
 def main():
-weatherDict = {}
+    weatherDict = {}
     client = mqtt.MQTTclient()
     w = WeatherStation("/dev/ttyUSB0", 9600, 5)
     currentDate = datetime.now().strftime("%Y%m%d")
@@ -115,6 +117,7 @@ weatherDict = {}
     fileName = hostname + "-weather-station-" + currentDate + ".json"
 
     while True:
+        weatherDict["time"] = int(time.time() * 1000000000)
         weatherDict["Temperature"] = w.Getdata(w.TemperatureRTU)
         weatherDict["Humidity"] = w.Getdata(w.HumidityRTU)
         weatherDict["Pressure"] = w.Getdata(w.PressureRTU)
@@ -134,7 +137,7 @@ weatherDict = {}
         weatherDict["PM2.5"] = w.Getdata(w.PM2RTU)
         weatherDict["PM10"] = w.Getdata(w.PM10RTU)
         pub = json.dumps(weatherDict)
-        client.publish("nau-iot/weather1/seeed-weather", pub)
+        client.publish("nau-iot/weather2/seeed-weather", pub)
         outputToJSON(weatherDict, fileName)
         time.sleep(1)
 
