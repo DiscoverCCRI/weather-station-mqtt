@@ -1,20 +1,18 @@
 import re
 from typing import NamedTuple
 import paho.mqtt.client as mqtt
-#from influxdb import InfluxDBClient
 import mariadb
 import json
 import csv
 import pandas as pd
 
 
-
-
 # CONSTANTS
 DB_ADDRESS = 'localhost'
 DB_USER = 'aba275'
-DB_PASSWORD = 'password'
-DB_NAME = 'seeed-weather'
+DB_PASSWORD = ''
+DB_PORT = 3306
+DB_NAME = 'SEEED_WEATHER'
 
 
 MQTT_ADDRESS = 'weather2.iot.nau.edu'
@@ -22,16 +20,6 @@ MQTT_USER = 'akiel'
 MQTT_PASSWORD = 'password'
 MQTT_TOPIC = 'nau-iot/+/+'
 MQTT_REGEX = 'nau-iot/([^/]+)/([^/]+)'
-
-#influxdb_client = InfluxDBClient(DB_ADDRESS,
-#                                 8086,
-#                                 DB_USER,
-#                                 DB_PASSWORD,
-#                                 None)
-
-
-
-
 
 def on_connect(client, userdata, flags, rc):
     print("[+] CONNECTION WITH CODE : " + str(rc))
@@ -63,11 +51,11 @@ def DB_insert(df):
     None
     """
     try:
-        conn = mariadb.connect(user='aba275',
-                               password='',
-                               host='localhost',
-                               port=3306,
-                               database='SEEED_WEATHER')
+        conn = mariadb.connect(user=DB_USER,
+                               password=DB_PASSWORD,
+                               host=DB_ADDRESS,
+                               port=DB_PORT,
+                               database=DB_NAME)
         cursor = conn.cursor()
 
         # create the table if it doesn't exist
@@ -151,24 +139,6 @@ def DB_insert(df):
 
     except mariadb.Error as e:
         print(f"Error connecting to MariaDB Platform: {e}")
-
-
-def parse_mqtt_msg(topic, payload):
-    """
-    reads variables from topic path struct and identifies vars
-    returning them as the a named tuple
-    """
-    # create match var = to first match of two vars passed in
-    match = re.match(MQTT_REGEX, topic)
-    # return named tuple if match
-    if match:
-        location = match.group(1)
-        measurement = match.group(2)
-        if measurement == 'status':
-            return None
-        return SensorData(location, measurement, float(payload))
-    else:
-        return None
 
 
 def main():
