@@ -30,26 +30,20 @@ Since this is a container-based application, the only dependency is Docker. Use 
 ```bash
 sudo apt install docker.io
 ```
-### As of 12/2022
-To install InfluxDB
+### As of 04/2023
+Installing MariaDB 
 ```
-# install InfluxDB dependencies
-$ sudo apt install influxdb
-$ sudo apt install influxdb-client
-$ pip3 install influxdb
+$ sudo apt install wget
+$ wget https://r.mariadb.com/downloads/mariadb_repo_setup
+$ echo "ad125f01bada12a1ba2f9986a21c59d2cccbe8d584e7f55079ecbeb7f43a4da4  mariadb_repo_setup" | sha256sum -c -
+$ chmod +x mariadb_repo_setup
+$ sudo ./mariadb_repo_setup --mariadb-server-version="mariadb-10.6"
 
-# start InfluxDB service
-$ sudo service influxdb start
-# check status
-$ sudo service influxdb status
-
-# edit configuration file and enable HTTP endpoint
-$ sudo vim /etc/influxdb/influxdb.conf
-# restart service
-$ sudo service influxdb restart
-# open InfluxDB
-$ influxdb
+OR
+$ sudo apt install libmariadb3 libmariadb-dev
 ```
+> Note: Installing MariaDB from a package manager like apt, yum, etc. will likely install
+an old incompatible version
 
 To install grafana (this installation follows ARM-based processors)
 ```
@@ -61,6 +55,12 @@ $ sudo /bin/systemctl daemon-reload
 $ sudo /bin/systemctl enable grafana-server
 # install elements
 $ sudo dpkg -i grafana-enterprise_9.3.1_arm64.deb
+```
+
+Installing Python dependencies
+```
+# dependencies are housed within the requirements.txt file
+$ pip install -r requirements.txt
 ```
 
 ## Latest releases
