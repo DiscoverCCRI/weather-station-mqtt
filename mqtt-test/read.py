@@ -118,7 +118,7 @@ def main():
 
     while True:
         #weatherDict["time"] = int(time.time() * 1000000000)
-        weatherDict["time"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z")
+        weatherDict["time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z")
         weatherDict["Temperature"] = w.Getdata(w.TemperatureRTU)
         weatherDict["Humidity"] = w.Getdata(w.HumidityRTU)
         weatherDict["Pressure"] = w.Getdata(w.PressureRTU)
