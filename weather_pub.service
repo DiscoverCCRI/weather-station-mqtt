@@ -1,0 +1,17 @@
+[Unit]
+After=network.service
+After=mosquitto.service
+Description=Seeed Weather Read and Pub
+
+[Service]
+Type=simple
+# WorkingDirectory=/code/python/myapp
+ExecStart=/home/aba275/weatherMQTT/weather_pub.sh
+Restart=on-failure
+RestartSec=10
+# User=do-user
+
+[Install]
+WantedBy=multi-user.target
+# WantedBy=default.target
+

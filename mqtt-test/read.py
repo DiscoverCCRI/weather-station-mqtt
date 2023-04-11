@@ -1,6 +1,6 @@
 import serial
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 import time
 import binascii
 import Binary
@@ -117,7 +117,8 @@ def main():
     fileName = hostname + "-weather-station-" + currentDate + ".json"
 
     while True:
-        weatherDict["time"] = int(time.time() * 1000000000)
+        #weatherDict["time"] = int(time.time() * 1000000000)
+        weatherDict["time"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z")
         weatherDict["Temperature"] = w.Getdata(w.TemperatureRTU)
         weatherDict["Humidity"] = w.Getdata(w.HumidityRTU)
         weatherDict["Pressure"] = w.Getdata(w.PressureRTU)
