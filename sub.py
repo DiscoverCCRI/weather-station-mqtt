@@ -32,9 +32,6 @@ def on_message(client, userdata, msg):
     msg_data = json.loads(mqtt_topic_msg)
     json_msg = pd.json_normalize(json.loads(msg_data))
 
-    #
-    #print(json_msg)
-
     if json_msg is not None:
         DB_insert(json_msg)
 

@@ -1,0 +1,339 @@
+** MQTT -> MariaDB bridge **
+[+] CONNECTION WITH CODE : 0
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592691517266176      21.080   12.360  ...                0.000  2.000  3.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592702555422976      21.080   12.320  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592713594636032      21.110   12.410  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592724633924608      21.070   12.430  ...                0.000  0.000  0.000
+
+[1 rows x 19 columns]
+Error connecting to MariaDB Platform: Unknown database 'SEEED_WEATHER'
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592735673498368      21.070   12.460  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592746713834496      21.070   12.440  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592757754096384      21.070   12.430  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592768794242304      21.080   12.510  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592779835060992      21.070   12.440  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592790875007232      21.080   12.430  ...                0.000  2.000  7.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592801914500096      21.080   12.450  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592812956011520      21.070   12.460  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592824994974720      21.080   12.440  ...                0.000  1.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592836033581568      21.110   12.430  ...                0.000  1.000  7.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592847073343232      21.100   12.380  ...                0.000  1.000  6.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592858113131520      21.110   12.460  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592869153660416      21.100   12.370  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592881193856768      21.100   12.430  ...                0.000  0.000  0.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592892236352000      21.070   12.400  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592903279954688      21.080   12.410  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592914322017792      21.080   12.410  ...                0.000  3.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592925364032256      21.100   12.350  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592936407716864      21.070   12.350  ...                0.000  1.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592948453072640      21.080   12.360  ...                0.000  0.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592959495053312      21.080   12.370  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592971538085888      21.100   12.380  ...                0.000  1.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681592982582566400      21.100   12.320  ...                0.000  1.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593012270330880      21.070   12.330  ...                0.000  3.000  8.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593023355484672      21.070   12.330  ...                0.000  2.000  8.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593034397807872      21.050   12.330  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593045441361664      21.050   12.250  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593056486125824      21.050   12.270  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593067530744832      21.050   12.270  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593078575763456      21.040   12.320  ...                0.000  2.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593089619548928      21.040   12.360  ...                0.000  2.000  6.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5    PM10
+0  1681593100664003328      21.040   12.360  ...                0.000  0.000  11.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593111707311360      21.010   12.320  ...                0.000  0.000  0.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593122752731136      21.040   12.380  ...                0.000  0.000  0.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593133797244672      21.040   12.330  ...                0.000  0.000  5.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5    PM10
+0  1681593144844097536      21.050   12.280  ...                0.000  0.000  10.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593155888678400      21.030   12.310  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593166935327744      21.040   12.320  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593177981210880      21.050   12.270  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593189027635456      21.050   12.320  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5    PM10
+0  1681593200073163264      21.030   12.310  ...                0.000  2.000  12.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593211121358336      21.040   12.320  ...                0.000  3.000  8.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593222168798208      21.050   12.320  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593233215775232      21.050   12.270  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593244262688768      21.030   12.280  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593255309734400      21.050   12.280  ...                0.000  2.000  7.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593267357571072      21.040   12.300  ...                0.000  2.000  7.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593278406724352      21.050   12.280  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593289454241024      21.040   12.250  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593300502691840      21.030   12.350  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593311552888576      21.050   12.250  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593322600354304      21.080   12.280  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593333649738496      21.040   12.310  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state   PM2.5   PM10
+0  1681593344699817728      21.040   12.320  ...               13.003  13.003  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593355748716288      21.040   12.250  ...                0.000  1.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593367798152960      21.050   12.330  ...                0.000  1.000  6.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593379846852608      21.050   12.310  ...                0.000  1.000  6.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593390896035328      21.050   12.330  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593401944837888      21.030   12.330  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593412996289280      21.050   12.280  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593424045844992      21.040   12.280  ...                0.000  3.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593435096495616      21.040   12.330  ...                0.000  1.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593446145168384      21.050   12.320  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593457195995136      21.050   12.280  ...                0.000  0.000  0.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593468245577984      21.050   12.300  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593479298212864      21.070   12.250  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593490349526528      21.040   12.270  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593501400073472      21.050   12.280  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593512451927296      21.030   12.300  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593523504049920      21.070   12.320  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593535556485120      21.070   12.270  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593546611001344      21.070   12.300  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593557664212736      21.040   12.300  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593568718096128      21.070   12.270  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593579771134208      21.050   12.270  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593590823443200      21.070   12.270  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593601876449792      21.050   12.240  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593612931281152      21.050   12.270  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593623985131776      21.070   12.270  ...                0.000  2.000  2.000
+
+[1 rows x 19 columns]
+                  time Temperature Humidity  ... The dumping of state  PM2.5   PM10
+0  1681593635037817344      21.100   12.280  ...                0.000  1.000  1.000
+
+[1 rows x 19 columns]
