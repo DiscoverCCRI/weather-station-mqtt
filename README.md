@@ -64,6 +64,12 @@ $ pip install -r requirements.txt
 the weather station subscribe.
 
 ## Systemd service
+> **Note** It is recommended to test the `weatherMQTT/read.py` and `sub.py` scripts on their respective servers/machines
+before setting them up as services to ensure data is being transmitted as expected.
+
+Install systemd with `$ sudo apt-get install systemd`
+
+
 ### **MACHINE 1: Weather station PUBLISH**
 This portion of the workflow requires the connection to the internet as well as a Seeed SenseCAP ONE S900
 weather station node along with an installation of MQTT. Assuming these prerequisites are met, do the following:
@@ -82,9 +88,19 @@ This portion of the workflow assumes that MariaDB is setup as well as MQTT.
 3. edit the service file as needed, specifically the `ExecStart=` variable to point to the correct location
 of the shell script that will run the `read.py` script and dump necessary outputs to logs. 
 4. run `$ sudo systemctl start weather_sub.service` and check its status with `$ sudo systemctl status weather_sub.service`
+5. check if your data is being collected properly by entering the MariaDB shell once more with `$ mariadb`. Query the data
+that is being stored in the `mqtt_data` table using:
+    * `USE SEEED_WEATHER;`
+    * `SELECT * FROM mqtt_data;`
+
+The data returned should appear in a format similar to this:
+
+|id|time|temperature|humidity|pressure|light_intensity|min_wind_direction|max_wind_direction|avg_wind_direction|min_wind_speed|max_wind_speed|avg_wind_speed|accum_rainfall|accum_rainfall_duration|rainfall_intensity|max_rainfall_intensity|heating_temperature|dumping_of_state|pm2_5|pm10|
+|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|1|1681592735673498368|21.07|12.46|79500|370|0|0|0|0|0|0|0.2|10|0|0|21.35|0|2|2|
 
 
-Example output:
+Example JSON output:
 ```json
 [
     {
