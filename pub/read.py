@@ -109,7 +109,16 @@ def outputToJSON(dataToAdd, fileName):
     
 def main():
     weatherDict = {}
+
+    # NOTE look into network.py from solar-data-receiver
+
+    # client = mqtt.MQTTclient("localhost", "weather2")
     client = mqtt.MQTTclient()
+
+    # NOTE establish MQTT connection with class method instead of default
+    # by constructor
+    # client.connect()
+
     w = WeatherStation("/dev/ttyUSB0", 9600, 5)
     currentDate = datetime.now().strftime("%Y%m%d")
     # Should include timestamp
@@ -140,7 +149,8 @@ def main():
         pub = json.dumps(weatherDict)
         client.publish("nau-iot/weather2/seeed-weather", pub)
         outputToJSON(weatherDict, fileName)
-        time.sleep(1)
+        # publish every minute
+        time.sleep(1 * 60)
 
 if __name__ == "__main__":
     main()
