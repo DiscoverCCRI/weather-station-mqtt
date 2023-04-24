@@ -23,9 +23,10 @@ class MQTTclient:
         interval = keep the connection open for this time default 60sec
         """
         self.client.connect("localhost", port)
-        sleep(1) # wait for connection
+        self.client.loop_start()
 
     def disconnect(self):
+        self.client.loop_stop()
         self.client.disconnect()
 
     def publish(self, topic, pub):

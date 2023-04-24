@@ -118,10 +118,11 @@ def main():
     hostname = os.uname()[1]
     fileName = hostname + "-weather-station-" + currentDate + ".json"
 
+    # connect accepts port number and duration to keep connection
+    # connects after time.sleep to avoid keeping connection open during down interval
+    client.connect()
+    
     while True:
-        # connect accepts port number and duration to keep connection
-        # connects after time.sleep to avoid keeping connection open during down interval
-        client.connect()
         weatherDict["time"] = int(time.time() * 1000000000)
         #weatherDict["time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z")
         weatherDict["Temperature"] = w.Getdata(w.TemperatureRTU)
