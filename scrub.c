@@ -7,18 +7,17 @@
  * instance
  */
 
-// MYSQL header
 #include <mysql.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 /**
- * @brief Establishes a MySQL connection and returns a MYSQL pointer.
- *
- * @param addr The MySQL server address.
- * @param user The MySQL user name.
- * @param pass The MySQL user password.
+ * @brief Establishes a MariaDB/MySQL connection and returns a MYSQL pointer
+ * @param addr server address
+ * @param user user name
+ * @param pass user password
  * @return A MYSQL pointer if the connection is successful, NULL otherwise.
  */
 MYSQL *db_connect(char *addr, char *user, char *pass, char *db) {
@@ -37,78 +36,102 @@ MYSQL *db_connect(char *addr, char *user, char *pass, char *db) {
         mysql_close(con);
         exit(1);
     }
+
     else {
         printf("\n[+] Connection SUCCESS\n");
     }
+
     // return connection object
     return con;
 }
 
+
 /**
- * @brief Retrieve the column names from a SQL table
- * @param con A MySQL struct pointer representing the database connection
- * @return MYSQL_RES struct pointer coontaining query
+ * @brief Returns an array of strings containing the names of the columns in mqtt_data
+ * @param con A pointer to a MySQL connection object.
+ * @return A pointer to an array of strings containing the names of the columns
+ *
  */
-MYSQL_RES *cols(MYSQL *con) {
+char **col_names(MYSQL *con) {
+    // MYSQL result struct
     MYSQL_RES *result;
+    // MYSQL field struct
     MYSQL_FIELD *field;
     int num_fields;
-    int i;
+    // result array
+    char **result_arr;
 
+    // query mqtt_data table 
     if (mysql_query(con, "SELECT * FROM mqtt_data LIMIT 0")) {
         fprintf(stderr, "%s\n", mysql_error(con));
-        return NULL;
+        exit(1);
     }
-
+    // stores query result in struct
     result = mysql_store_result(con);
     if (result == NULL) {
         fprintf(stderr, "%s\n", mysql_error(con));
-        return NULL;
+        exit(1);
     }
 
+    // allocate memory for result array
+    result_arr = (char **) malloc(num_fields * sizeof(char *));
     num_fields = mysql_num_fields(result);
-    for (i = 0; i < num_fields; i++) {
-        field = mysql_fetch_field_direct(result, i);
-        if (field == NULL) {
-            fprintf(stderr, "%s\n", mysql_error(con));
-            return NULL;
-        }
-        printf("%s \n", field->name);
-    }
 
+    // iterate through column names (fields) and populate the result array
+    for (int i = 0; i < num_fields; i++) {
+        // field for current column index
+        field = mysql_fetch_field_direct(result, i);
+
+        if (field == NULL) {
+            fprintf(stderr, "%s\n", mysql_error(con)); 
+            exit(1);
+        }
+    
+        // allocate memory for result array elements
+        result_arr[i] = (char *) malloc(strlen(field->name) + 1);
+        // copy column name to result array
+        strcpy(result_arr[i], field->name);
+    }
+    
+    // free allocated result memory
     mysql_free_result(result);
-    return result;
+    return result_arr;
 }
 
-MYSQL_RES* col_name(MYSQL* con) {
-    MYSQL_RES* result;
-    MYSQL_FIELD* field;
-    int num_fields;
-    int i;
+/*
+outliers(MYSQL *con, column_name, ) {
+    // define struct for min/max for ranges
 
-    if (mysql_query(con, "SELECT * FROM mqtt_data LIMIT 0")) {
-        fprintf(stderr, "%s\n", mysql_error(con));
-        return NULL;
-    }
-
-    result = mysql_store_result(con);
-    if (result == NULL) {
-        fprintf(stderr, "%s\n", mysql_error(con));
-        return NULL;
-    }
-
-    num_fields = mysql_num_fields(result);
-
-    for (i = 0; i < num_fields; i++) {
-        field = mysql_fetch_field_direct(result, i);
-        if (field == NULL) {
-            fprintf(stderr, "%s\n", mysql_error(con));
-            return NULL;
+    // for all 20 readings, establish baseline set of ranges, given
+    // column names, check if the rows for a given column are in range
+    for (i=0; i < num of rows for given col; i++) {
+        if (row val is not in range) {
+            // print some pretty table of information
         }
     }
-
-    return result;
+    // think of way to return outliers in a easy to use format
 }
+*/
+
+/*
+scrubber(MYSQL *con) {
+    // parse column names
+
+    // define outlier ranges for the 20 fields
+
+    // given column name, check the colums rows for outliers
+
+    // check for NULL/empty data?
+
+    // <---->
+    // Several optimizations can be made
+    // - Merge sort approach, partition data (rows) of each column
+    // - Spawn worker threads for equal parts of the rows
+    // - ThreadPool, for each column name clean it up, each function call can
+    // be a thread
+
+}
+*/
 
 /**
  * @brief main()
@@ -119,28 +142,25 @@ int main(int argc, char **argv) {
     char pass[] = "";
     char db[] = "SEEED_WEATHER";
     char table[] = "mqtt_data";
+
     // establish connection
     MYSQL *db_con = db_connect(addr, user, pass, db);
     // query column names
     //MYSQL_RES *col_res = cols(db_con);
+    char **col_arr = col_names(db_con);
+
+    // print column names
+    for (int i = 0; col_arr[i] != NULL; i++) {
+        printf("%s\n", col_arr[i]);
+        // free the memory allocated for each element
+        free(col_arr[i]);
+    }
     
 
-    MYSQL_RES *columns;
-    MYSQL_ROW row;
-    columns = col_name(db_con);
-    int num_fields = mysql_num_fields(columns);
+    // call scrubber with connection object?
 
-    while ((row = mysql_fetch_row(columns))) {
-        for (int i = 0; i < num_fields; i++) {
-            printf("%s ", row[i] ? row[i] : "NULL");
-        }
-        printf("\n");
-    }
-
-    free(columns);
-
-    // scrubber(db_con)
-
+    // free memory allocated for column array
+    free(col_arr);
     // close connection
     mysql_close(db_con);
 
