@@ -6,7 +6,6 @@ FILES	= scrub.c
 compile:
 	${CC} ${FILES} -o ${BIN} ${SQLFLG}
 
-
 clean:
 	rm ${BIN}
 
