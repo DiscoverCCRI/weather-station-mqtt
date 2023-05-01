@@ -18,6 +18,7 @@
  * @param addr server address
  * @param user user name
  * @param pass user password
+ * @param db database name
  * @return A MYSQL pointer if the connection is successful, NULL otherwise.
  */
 MYSQL *db_connect(char *addr, char *user, char *pass, char *db) {
