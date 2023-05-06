@@ -1,4 +1,4 @@
-Authors: Yiwei Zhang, NAU IoT (Duane Booher, Jacob Hagan)
+Authors: Yiwei Zhang, NAU IoT (Duane Booher, Jacob Hagan, Akiel Aries)
 
 # Introduction 
 This repository contains sample code to read and collect Seeed SenseCAP ONE S900 Compact Weather Station data within a Docker container. The purpose of this code is to support the Discover project at Northern Arizona University.
