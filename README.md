@@ -26,7 +26,7 @@ the data live.
 
 Clone this repository:
 ```bash
-git clone https://github.com/DiscoverCCRI/weather-station-test1.git
+git clone git@github.com:DiscoverCCRI/weatherMQTT.git 
 ```
 
 ## Installing MariaDB 
