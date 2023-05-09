@@ -92,13 +92,30 @@ of the shell script that will run the `read.py` script and dump necessary output
 that is being stored in the `mqtt_data` table using:
     * `USE SEEED_WEATHER;`
     * `SELECT * FROM mqtt_data;`
-
+    
 The data returned should appear in a format similar to this:
 
 |id|time|temperature|humidity|pressure|light_intensity|min_wind_direction|max_wind_direction|avg_wind_direction|min_wind_speed|max_wind_speed|avg_wind_speed|accum_rainfall|accum_rainfall_duration|rainfall_intensity|max_rainfall_intensity|heating_temperature|dumping_of_state|pm2_5|pm10|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |1|1681592735673498368|21.07|12.46|79500|370|0|0|0|0|0|0|0.2|10|0|0|21.35|0|2|2|
 
+#### Setting up Grafana
+To visualize the data populated in the database follow these loose instructions on setting up a data source and 
+a dashboard for readings. View the official documentation [here](https://grafana.com/docs/grafana/latest/). 
+
+1. When visiting `localhost:3000` in a browser login or setup your grafana user account. Edit your configuration settings
+to use MySQL as a data source. 
+![grafana_0](https://github.com/DiscoverCCRI/weatherMQTT/blob/main/images/grafana_0.png)
+
+2. Edit your data source to include the database name and hostname.
+![grafana_1](https://github.com/DiscoverCCRI/weatherMQTT/blob/main/images/grafana_1.png)
+
+3. Create a dashboard of your database to start adding panels to visualize.
+![grafana_2](https://github.com/DiscoverCCRI/weatherMQTT/blob/main/images/grafana_2.png)
+
+4. Create panels for your dashboard simply with SQL queries. This example queries temperature and time
+to group by the latter.
+![grafana_3](https://github.com/DiscoverCCRI/weatherMQTT/blob/main/images/grafana_3.png)
 
 Example JSON output:
 ```json
